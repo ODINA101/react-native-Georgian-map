@@ -8,10 +8,12 @@
   },
   "dependencies": {
     "@dudigital/react-native-zoomable-view": "^1.0.13",
+    "color": "^3.1.2",
     "react": "16.8.3",
     "react-native": "0.59.9",
     "react-native-interactive-image": "^0.1.0",
     "react-native-svg": "^9.5.1",
+    "react-native-svg-animations": "^0.1.7",
     "react-native-svg-pan-zoom": "^0.1.2",
     "react-native-svg-uri": "^1.2.3",
     "zoomable-svg": "^5.0.0"
