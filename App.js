@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import { TouchableHighlight, BackHandler, Button, Platform, StyleSheet, Text, View, ImageBackground, Dimensions, PanResponder, Modal } from 'react-native';
+import {
+  TextInput,
+  BackHandler, Button, Platform, StyleSheet, Text, View, ImageBackground, Dimensions, PanResponder, Modal
+} from 'react-native';
 import SvgComponent from "./svgc"
 const { width, height } = Dimensions.get('window');
-import ReactNativeZoomableView from '@dudigital/react-native-zoomable-view/src/ReactNativeZoomableView';
-
-
-
+import Feather from 'react-native-vector-icons/Feather';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import TouchableIcon from "./components/TouchableIcon"
+import Interactable from 'react-native-interactable';
 export default class App extends Component {
   state = {
     modalVisible: false,
@@ -16,35 +19,36 @@ export default class App extends Component {
       return true;
     });
   }
-
   render() {
     return (
       <View style={styles.container}>
-        <Modal
-          animationType="slide"
-          transparent={false}
-          visible={this.state.modalVisible}
-          onRequestClose={() => {
-            Alert.alert('Modal has been closed.');
-          }}>
-          <View style={{ marginTop: 22 }}>
-            <View>
-              <Text>Hello World!</Text>
-              <Button
-                onPress={() => this.setState({ modalVisible: false })}
-                title="Learn More"
-                color="#841584"
-                accessibilityLabel="Learn more about this purple button"
-              />
+        <View style={{ height: 100 }}>
+          <View style={{ flex: 1, paddingHorizontal: 15, paddingTop: 10, justifyContent: 'space-between', flexDirection: "row" }}>
+            <TouchableIcon IconName="user" IconType={Feather} />
+            <TouchableIcon IconName="upload" IconType={AntDesign} />
+          </View>
+          <View style={{ flex: 1, alignItems: 'center' }}>
+            <View style={{ width: 300, borderRadius: 50, height: 60, flexDirection: 'row', backgroundColor: "#FFF" }}>
+              <View style={{ flex: 1 }}>
+                <TextInput placeholder="Search" style={{ flex: 1, paddingLeft: 10, fontSize: 17 }} />
+              </View>
+              <View style={{ flex: 0.2, alignItems: 'center', justifyContent: 'center' }}>
+                <Feather name="search" size={25} color="#000" />
+              </View>
             </View>
           </View>
-        </Modal>
-        <SvgComponent
-          showModal={() => this.setState({ modalVisible: true })}
-          ref='svgC'
-          width={width}
-          height={height}
-        />
+        </View>
+
+        <Interactable.View
+          snapPoints={[{ x: 0 }, { x: 0 }]}
+          onSnap={this.onDrawerSnap}>
+
+          <SvgComponent
+            showModal={() => this.setState({ modalVisible: true })}
+            ref='svgC'
+
+          />
+        </Interactable.View>
       </View >
     );
   }
@@ -53,5 +57,6 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "#FCBD00"
   }
 });
