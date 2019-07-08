@@ -3,7 +3,7 @@ import {
   TextInput,
   BackHandler, Button, Platform, StyleSheet, Text, View, ImageBackground, Dimensions, PanResponder, Modal
 } from 'react-native';
-import SvgComponent from "./svgc"
+import SvgComponent from "./components/screens/home/svgc"
 const { width, height } = Dimensions.get('window');
 import Feather from 'react-native-vector-icons/Feather';
 import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -39,17 +39,14 @@ export default class App extends Component {
           </View>
         </View>
 
-        <Interactable.View
-          snapPoints={[{ x: 0 }, { x: 0 }]}
-          onSnap={this.onDrawerSnap}>
 
-          <SvgComponent
-            showModal={() => this.setState({ modalVisible: true })}
-            ref='svgC'
 
-          />
-        </Interactable.View>
-      </View >
+        <SvgComponent
+          showModal={() => this.setState({ modalVisible: true })}
+          ref='svgC'
+
+        />
+      </View>
     );
   }
 }

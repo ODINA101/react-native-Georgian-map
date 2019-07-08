@@ -14,7 +14,7 @@ class TouchableIcon extends Component {
         return (
             <View style={{ borderRadius: 25 }}>
                 <TouchableNativeFeedback
-                    onPress={() => { }}
+                    onPress={() => { this.props.onPress() }}
                     background={TouchableNativeFeedback.Ripple('#AAF', true)}>
                     <View style={{ width: 35, height: 35, justifyContent: 'center', alignContent: 'center', borderRadius: 25, backgroundColor: 'transparent' }}>
                         <Icon name={IconName} size={30} color="#000" />
