@@ -3,6 +3,9 @@ package com.testingsvg;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.luongnd.RNGvr.RNGvrPackage;
+import com.entria.views.RNViewOverflowPackage;
+import com.airbnb.android.react.maps.MapsPackage;
 import org.reactnative.camera.RNCameraPackage;
 import se.folof.androw.RNAndrowPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
@@ -29,6 +32,9 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNGvrPackage(),
+            new RNViewOverflowPackage(),
+            new MapsPackage(),
             new RNCameraPackage(),
             new RNAndrowPackage(),
             new LinearGradientPackage(),

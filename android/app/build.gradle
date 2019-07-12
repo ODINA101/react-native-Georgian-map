@@ -103,7 +103,7 @@ android {
 
     defaultConfig {
         applicationId "com.testingsvg"
-        minSdkVersion rootProject.ext.minSdkVersion
+         minSdkVersion 19
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
@@ -139,6 +139,9 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-gvr')
+    implementation project(':react-native-view-overflow')
+    implementation project(':react-native-maps')
     implementation project(':react-native-camera')
     implementation project(':react-native-androw')
     implementation project(':react-native-linear-gradient')

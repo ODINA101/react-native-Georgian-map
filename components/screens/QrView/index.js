@@ -9,9 +9,11 @@ import {
     TouchableOpacity,
     Linking,
 } from 'react-native';
-
+import TouchableIcon from "../../TouchableIcon"
 import QRCodeScanner from 'react-native-qrcode-scanner';
+import Ionicons from "react-native-vector-icons/Ionicons"
 // create a component
+
 class QrCodeView extends Component {
     onSuccess = (e) => {
         Linking
@@ -20,7 +22,9 @@ class QrCodeView extends Component {
     }
     _topContent() {
         return (
-            <View style={{ height: 0 }}></View>
+            <View style={{ height: 0 }}>
+
+            </View>
         )
     }
     _bottomContent() {
@@ -31,6 +35,9 @@ class QrCodeView extends Component {
     render() {
         return (
             <View style={{ flex: 1, backgroundColor: "black" }}>
+                <View style={{ padding: 20 }}>
+                    <TouchableIcon IconName="ios-arrow-back" onPress={() => this.props.navigation.pop()} IconType={Ionicons} color="#FFF" />
+                </View>
                 <QRCodeScanner
                     onRead={this.onSuccess}
                     containerStyle={{ flex: 1 }}

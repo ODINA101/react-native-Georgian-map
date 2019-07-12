@@ -108,13 +108,18 @@ class SvgComponent extends Component {
 
         Animated.timing(this.state.wmScale, { toValue: 50, duration: 500 }).start();
         Animated.timing(this.state.mapX, { toValue: 0, duration: 500 }).start();
-        Animated.timing(this.state.mapY, { toValue: -100, duration: 500 }).start();
+        Animated.timing(this.state.mapY, { toValue: -100, duration: 500 }).start(
+            () => {
+                this.props.navigation.push("MapView")
+                this.back()
+            }
+
+        );
     }
     back() {
-
-        Animated.timing(this.state.wmScale, { toValue: 0.7, duration: 2000 }).start();
-        Animated.timing(this.state.mapX, { toValue: 0, duration: 2000 }).start();
-        Animated.timing(this.state.mapY, { toValue: 0, duration: 2000 }).start();
+        Animated.timing(this.state.wmScale, { toValue: 0.9, duration: 500 }).start();
+        Animated.timing(this.state.mapX, { toValue: 0, duration: 500 }).start();
+        Animated.timing(this.state.mapY, { toValue: -200, duration: 500 }).start();
     }
 
     render() {

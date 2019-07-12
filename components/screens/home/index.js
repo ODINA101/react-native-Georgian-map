@@ -9,6 +9,8 @@ import Feather from 'react-native-vector-icons/Feather';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import TouchableIcon from "../../TouchableIcon"
 import Interactable from 'react-native-interactable';
+import ButtomBar from "./bottom"
+import BottomBar from './bottom';
 export default class App extends Component {
     state = {
         modalVisible: false,
@@ -24,11 +26,11 @@ export default class App extends Component {
             <View style={styles.container}>
                 <View style={{ height: 100 }}>
                     <View style={{ flex: 1, paddingHorizontal: 15, paddingTop: 10, justifyContent: 'space-between', flexDirection: "row" }}>
-                        <TouchableIcon IconName="user" IconType={Feather} />
+                        <TouchableIcon onPress={() => this.props.navigation.push('Settings')} IconName="user" IconType={Feather} />
                         <TouchableIcon onPress={() => this.props.navigation.push('QrView')} IconName="qrcode" IconType={AntDesign} />
                     </View>
                     <View style={{ flex: 1, alignItems: 'center' }}>
-                        <View style={{ width: 300, borderRadius: 50, height: 60, flexDirection: 'row', backgroundColor: "#FFF" }}>
+                        <View style={{ width: 300, borderRadius: 50, height: 50, flexDirection: 'row', backgroundColor: "#FFF" }}>
                             <View style={{ flex: 1 }}>
                                 <TextInput placeholder="Search" style={{ flex: 1, paddingLeft: 10, fontSize: 17 }} />
                             </View>
@@ -43,8 +45,10 @@ export default class App extends Component {
                 <SvgComponent
                     showModal={() => this.setState({ modalVisible: true })}
                     ref='svgC'
+                    navigation={this.props.navigation}
 
                 />
+                <BottomBar />
             </View>
         );
     }
