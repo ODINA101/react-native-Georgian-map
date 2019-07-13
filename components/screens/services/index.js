@@ -1,6 +1,6 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, TextInput, StyleSheet, Image, ScrollView, ImageBackground } from 'react-native';
+import { TouchableOpacity, View, Text, TextInput, StyleSheet, Image, ScrollView, ImageBackground } from 'react-native';
 import TouchableIcon from '../../TouchableIcon'
 import Feather from "react-native-vector-icons/Feather"
 import AntDesign from "react-native-vector-icons/AntDesign"
@@ -20,7 +20,7 @@ class Services extends Component {
                         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
 
-                                <TouchableIcon IconName="left" color="#FFF" IconType={AntDesign} />
+                                <TouchableIcon onPress={() => this.props.navigation.pop()} IconName="left" color="#FFF" IconType={AntDesign} />
                                 <View style={{ paddingLeft: 15, paddingRight: 30 }}>
                                     <View style={{ width: 300, borderRadius: 50, height: 50, flexDirection: 'row', backgroundColor: "#FFF" }}>
                                         <View style={{ flex: 1 }}>
@@ -42,11 +42,12 @@ class Services extends Component {
                         {
                             cats.map(item => {
                                 return (
-                                    <ImageBackground borderRadius={18} style={{ width: 375, height: 200, marginTop: 20 }} source={{ uri: 'https://d2i9a1098e7tai.cloudfront.net/hardrockhotels.com-315677683/cms/cache/v2/5b48d841e765c.jpg/840x400/fit;c:196,246,4682,3236/80/bdf53a9ba4838bb818cc3d5bafe9992f.jpg' }} >
-                                        <View style={{ flex: 1, padding: 15, borderRadius: 18, backgroundColor: 'rgba(0,0,0,0.5)' }}>
-                                            <Text style={{ fontWeight: 'bold', color: "#FFF", fontSize: 17 }}>{item}</Text>
-                                        </View>
-                                    </ImageBackground>
+                                    <TouchableOpacity onPress={() => this.props.navigation.push('SingleCat')}>
+                                        <ImageBackground borderRadius={18} style={{ width: 375, height: 200, marginTop: 20 }} source={{ uri: 'https://d2i9a1098e7tai.cloudfront.net/hardrockhotels.com-315677683/cms/cache/v2/5b48d841e765c.jpg/840x400/fit;c:196,246,4682,3236/80/bdf53a9ba4838bb818cc3d5bafe9992f.jpg' }} >
+                                            <View style={{ flex: 1, padding: 15, borderRadius: 18, backgroundColor: 'rgba(0,0,0,0.5)' }}>
+                                                <Text style={{ fontWeight: 'bold', color: "#FFF", fontSize: 17 }}>{item}</Text>
+                                            </View>
+                                        </ImageBackground></TouchableOpacity>
                                 )
 
                             })

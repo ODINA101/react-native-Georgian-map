@@ -3,6 +3,8 @@ package com.testingsvg;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.johnsonsu.rnsoundplayer.RNSoundPlayerPackage;
+import com.otomogroove.OGReactNativeWaveform.OGWavePackage;
 import com.luongnd.RNGvr.RNGvrPackage;
 import com.entria.views.RNViewOverflowPackage;
 import com.airbnb.android.react.maps.MapsPackage;
@@ -32,6 +34,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNSoundPlayerPackage(),
+            new OGWavePackage(),
             new RNGvrPackage(),
             new RNViewOverflowPackage(),
             new MapsPackage(),

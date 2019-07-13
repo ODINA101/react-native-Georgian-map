@@ -217,7 +217,7 @@ class SingleCat extends Component {
                             <View style={{ marginTop: 90, alignItems: 'center', justifyContent: 'center' }}>
                                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
 
-                                    <TouchableIcon IconName="left" color="#FFF" IconType={AntDesign} />
+                                    <TouchableIcon onPress={() => this.props.navigation.pop()} IconName="left" color="#FFF" IconType={AntDesign} />
                                     <View style={{ paddingLeft: 15, paddingRight: 30 }}>
                                         <View style={{ width: 300, borderRadius: 50, height: 50, flexDirection: 'row', backgroundColor: "#FFF" }}>
                                             <View style={{ flex: 1 }}>
@@ -264,7 +264,7 @@ class SingleCat extends Component {
                     </ViewOverflow>
 
                     <View style={{ padding: 20, marginTop: 100 }}>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.props.navigation.push("VR")}>
                             <ImageBackground source={{ uri: 'https://pmcvariety.files.wordpress.com/2018/07/bradybunchhouse_sc11.jpg?w=1000&h=563&crop=1' }}
                                 borderRadius={20}
                                 style={{ height: 90 }}>
@@ -291,8 +291,7 @@ class SingleCat extends Component {
                                 initialRegion={this.state.region}
                             >
                                 <Marker
-                                    title="This is a title"
-                                    description="This is a description"
+                                    title="Hotel"
                                     coordinate={this.state.region}
                                 />
                             </MapView>

@@ -139,6 +139,8 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-sound-player')
+    implementation project(':react-native-audiowaveform')
     implementation project(':react-native-gvr')
     implementation project(':react-native-view-overflow')
     implementation project(':react-native-maps')

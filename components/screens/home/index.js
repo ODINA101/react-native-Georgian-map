@@ -40,13 +40,10 @@ export default class App extends Component {
                         </View>
                     </View>
                 </View>
-
-
                 <SvgComponent
                     showModal={() => this.setState({ modalVisible: true })}
                     ref='svgC'
                     navigation={this.props.navigation}
-
                 />
                 <BottomBar />
             </View>

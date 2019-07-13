@@ -1,21 +1,40 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, Dimensions, BackHandler } from 'react-native';
 import { VideoView } from 'react-native-gvr'
 const { width, height } = Dimensions.get("window");
 
 // create a component
 class VrView extends Component {
+    constructor(props) {
+        super(props);
+
+    }
+
+
+    componentDidMount() {
+        this.backHandler = BackHandler.addEventListener('hardwareBackPress', () => {
+            this.props.navigation.pop()
+        });
+    }
+
+    componentWillUnmount() {
+        this.backHandler.remove()
+    }
+
+    handleBackPress = () => {
+        this.goBack(); // works best when the goBack is async
+        return true;
+    }
     render() {
         return (
             <View style={styles.container}>
                 <VideoView
                     style={{ height, width }}
                     source={{
-                        uri: 'https://d2v9y0dukr6mq2.cloudfront.net/video/preview/pbJRSBz/videoblocks-virtual-reality-360-view-from-the-city-noto-in-italy_BRb28dDa-__WM.mp4',
+                        uri: 'https://cdn-b-east.streamable.com/video/mp4/mz141.mp4?token=69_qHebZzC9R6JwXHsTEOA&expires=1563065160',
                         type: 'mono'
                     }}
-                    displayMode={'fullscreen'}
                     volume={1}
                     enableCardboardButton
                     enableTouchTracking

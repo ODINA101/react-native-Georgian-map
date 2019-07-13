@@ -7,7 +7,14 @@ import MapView from './screens/map'
 import ServicesScreen from "./screens/services"
 import SingleCatScreen from "./screens/SingleCat"
 import VRscreen from './screens/VR'
+import SplashScreen from "./screens/SplashScreen"
 const AppNavigator = createStackNavigator({
+    SplashScreen: {
+        screen: SplashScreen
+    },
+    Home: {
+        screen: HomeScreen
+    },
     VR: {
         screen: VRscreen
     },
@@ -17,9 +24,7 @@ const AppNavigator = createStackNavigator({
     Services: {
         screen: ServicesScreen
     },
-    Home: {
-        screen: HomeScreen
-    },
+
     MapView: {
         screen: MapView
     },
